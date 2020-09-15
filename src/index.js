@@ -1,14 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Hello from './Hello';
 import * as serviceWorker from './serviceWorker';
+
+function HelloName(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+class Message extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(e) {
+    this.setState({
+      name: e.target.value,
+    });
+  }
+  render() {
+    return (
+      <div>
+        <HelloName name={this.state.name} />
+        <input type="text" onChange={this.handleChange} />
+      </div>
+    );
+  }
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-    <Hello name="React" />
+    <Message />
   </React.StrictMode>,
   document.getElementById('root')
 );
