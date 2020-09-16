@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import CountUp from './components/CountUp';
 
 function HelloName(props) {
   return <h1>Hello, {props.name}</h1>;
@@ -32,6 +33,7 @@ class Message extends React.Component {
 ReactDOM.render(
   <React.StrictMode>
     <Message />
+    <CountUp />
   </React.StrictMode>,
   document.getElementById('root')
 );
